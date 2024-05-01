@@ -8,7 +8,7 @@ import java.util.Map;
 
 
 
-public class problem1 {
+public class numberClassification {
 
 
     //Problem:

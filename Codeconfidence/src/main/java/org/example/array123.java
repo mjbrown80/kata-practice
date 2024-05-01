@@ -24,13 +24,16 @@ array123([1, 1, 2, 1, 2, 3]) → true
 
     public static boolean array123(int[] nums) {
 
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == 1 && nums[i+1] + 1 == 2 && nums[i+2] + 2 == 3)
-                return true;
-            else {
-                return false;
+        for (int i = 0; i < nums.length-2; i++){
+            for (int j = 1; j < nums.length-1; j++){
+                for (int k = 2; k < nums.length; k++){
+                    if (nums[i] == 1 && nums[j] == 2 && nums[k] ==3){
+                        return true;
+                    }
+                }
             }
         }
+
         return false;
     }
 }
