@@ -13,18 +13,26 @@ Examples
 [-1, 0], [0, -1]              -->   1   because (1 + 1) / 2
 */
 
-    public class Main {
+    public static void main(String[] args) {
 
-//            System.out.println("Expected: 9 - Actual: " + avgSquare(new int[] { 1, 2, 3}, new int[] {4, 5, 6}));
-//
-//            System.out.println("Expected: 16.5 - Actual: " + avgSquare(new int[] { 10, 20, 10, 2}, new int[] {10, 25, 5,  -2}));
-//
-//            System.out.println("Expected: 9 - Actual: " + avgSquare(new int[] { -1, 0}, new int[] {0, -1}));
+            System.out.println("Expected: 9 - Actual: " + avgSquare(new int[] { 1, 2, 3}, new int[] {4, 5, 6}));
+
+            System.out.println("Expected: 16.5 - Actual: " + avgSquare(new int[] { 10, 20, 10, 2}, new int[] {10, 25, 5,  -2}));
+
+            System.out.println("Expected: 1 - Actual: " + avgSquare(new int[] { -1, 0}, new int[] {0, -1}));
         }
 
-        public int avgSquare(int[] a, int[] b){
+        public static double avgSquare(int[] a, int[] b){
+        double totalNum =0;
 
-        return 0;
+
+        for (int i = 0; i < a.length; i++){
+          int difference = Math.abs(a[i] - b[i]);
+          int square = difference * difference;
+          totalNum += square;
+        }
+
+        return totalNum /= a.length;
         }
 
     }
