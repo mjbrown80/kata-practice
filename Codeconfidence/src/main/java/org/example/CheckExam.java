@@ -28,14 +28,21 @@ For example:
 
         for (int i = 0; i < a.length; i++){
             if (a[i].equals(b[i])){
-                score += 10;
-            }else if (!a[i].equals(b[i])){
-                score -= 1;
+                score += 4;
             } else if (b[i].equals("")) {
                 score += 0;
+            }else {
+                score -=1;
             }
         }
-        return score;
+        if (score < 0){
+            return 0;
+        }else {
+            return score;
+        }
+
+
+
         }
 
     }
