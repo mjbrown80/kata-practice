@@ -27,15 +27,16 @@ Example:
 
         for(int i = 0; i < nums.length; i+=2){
 //            int difference = 0;
-            if(nums[i] <= nums[i + 1]){
+//            if(nums[i] <= nums[i + 1]){
 //                difference = nums[i+1] -= nums[i] ;
 //                sum += difference;
-                sum += nums[i+1] - nums[i];
-            }else{
+//                sum += nums[i+1] - nums[i];
+//            }else{
 //                difference = nums[i] -= nums[i+1];
 //                sum += difference;
-                sum += nums[i] - nums[i+1];
-            }
+//                sum += nums[i] - nums[i+1];
+//            }
+            sum += Math.abs(nums[i] -= nums[i+1]);
         }
         return sum;
     }
