@@ -35,10 +35,23 @@ Then the "like is the subsequence and ["I", "cheese] in the list of missing word
         System.out.println("Expected: " + result + " Actual: " + removeWords(input, search));
 
     }
-    public static String removeWords(String s, String t){
+    public static String removeWords(String str1, String strSub){
         String str = "";
-        
+        String[] subStrings = strSub.split(" ");
+        String [] stringStr = str1.split(" ");
 
-        return "";
+        for (String words : stringStr){
+            boolean isFound = false;
+            for (String s : subStrings){
+                if (s.equals(words)){
+                    isFound = true;
+                }
+            }
+            if (!isFound)  {
+                str += words + " ";
+            }
+        }
+
+        return str;
     }
 }
