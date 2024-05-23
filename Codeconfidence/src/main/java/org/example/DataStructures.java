@@ -34,6 +34,13 @@ public class DataStructures {
         System.out.println("The largest number is: " + max);
         System.out.println("The smallest number is: " + min);
 
+        //average
+        int sum = 0;
+        for (int n : numbers){
+            sum += n;
+        }
+        double  average = sum / numbers.length;
+        System.out.println("The average is " + average);
         //bubble sort
 
         for (int i = 0; i < numbers.length; i ++) {
