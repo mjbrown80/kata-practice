@@ -28,6 +28,7 @@ public class Problem2 {
 
             int num1 = 0;
             int num2 = 0;
+            int num3 = 0;
 
             for (int i = 0; i < list.size(); i++){
                 num1 = list.get(i);
@@ -39,9 +40,22 @@ public class Problem2 {
                     }
                 }
             }
+
+            for (int i = 0; i < list.size(); i++){
+                num1 = list.get(i);
+                for (int j = i + 1; j < list.size(); j++){
+                    num2 = list.get(j);
+                    for (int k = j + 1; k < list.size(); k++){
+                        num3 = list.get(k);
+                        if ((num1 + num2 + num3) == 2020){
+                            System.out.println(num1 + " " + num2 + " " + num3);
+                            System.out.println(num1 * num2 * num3);
+                        }
+                    }
+                }
+            }
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
