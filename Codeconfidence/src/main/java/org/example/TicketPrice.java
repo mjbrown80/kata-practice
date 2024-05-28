@@ -29,49 +29,76 @@ Your task is to implement a function called calculateTicketPrice that takes a Li
         System.out.println("Expected: 35.0 - Actual: " + calculateTicketPrice(ages1, false)); // Output: 35
 
         List<Integer> ages2 = Arrays.asList(new Integer[]{45, 50, 60});
-        System.out.println("Expected: 37.80 - Actual: " +calculateTicketPrice(ages2, true)); // Output: 37.80
+        System.out.println("Expected: 37.80 - Actual: " + calculateTicketPrice(ages2, true)); // Output: 37.80
 
         List<Integer> ages3 = Arrays.asList(new Integer[]{12, 12, 12, 12, 12});
-        System.out.println("Expected: 22.5 - Actual: " +calculateTicketPrice(ages3, false)); // Output: 22.5
+        System.out.println("Expected: 22.5 - Actual: " + calculateTicketPrice(ages3, false)); // Output: 22.5
     }
 
-    public static Double calculateTicketPrice(List<Integer> ages, boolean isWeekend){
-
+    public static Double calculateTicketPrice(List<Integer> ages, boolean isWeekend) {
         double priceTicket = 0;
 
+        for (int age : ages) {
+            double price = 0;
 
-
-        for (int age : ages){
-            double weekendCharge = (priceTicket * 0.05);
-            if (age <= 12 && isWeekend){
-                priceTicket += 5;
-                priceTicket += weekendCharge;
-            } else if (age <= 12 ) {
-                priceTicket += 5;
-            }
-            if (age >= 13 && age <= 17 && isWeekend) {
-                priceTicket +=8;
-                priceTicket += weekendCharge;
-            } else if (age >= 13 && age <= 17) {
-                priceTicket += 8;
-            }
-            if (age >= 18 && age <= 64 && isWeekend) {
-                priceTicket += 12;
-                priceTicket += weekendCharge;
-            } else if (age >= 18 && age <= 64) {
-                priceTicket += 12;
-            }
-            if (age >= 65 && isWeekend){
-                priceTicket += 10;
-                priceTicket += weekendCharge;
+            if (age <= 12) {
+                price = 5;
+            } else if (age <= 17) {
+                price = 8;
+            } else if (age <= 64) {
+                price = 12;
             } else if (age >= 65) {
-                priceTicket +=10;
+                price = 10;
             }
-    }
-        if (ages.size() >= 5) {
-            double groupDiscount = priceTicket * 0.1;
-            priceTicket -=groupDiscount;
+
+            if (isWeekend && (age >= 18)) {
+                price *= 1.05;
+            }
+            priceTicket += price;
         }
+        if (ages.size() >= 5) {
+            priceTicket *= 0.9;
+        }
+
+        priceTicket = Math.round(priceTicket * 100.0) / 100.0;
+
         return priceTicket;
     }
 }
+
+//            double priceTicket = 0;
+
+//            for (int age : ages){
+//            double weekendCharge = (priceTicket * 0.05);
+//            if (age <= 12 && isWeekend){
+//                priceTicket += 5;
+//                priceTicket += weekendCharge;
+//            } else if (age <= 12 ) {
+//                priceTicket += 5;
+//            }
+//            if (age >= 13 && age <= 17 && isWeekend) {
+//                priceTicket +=8;
+//                priceTicket += weekendCharge;
+//            } else if (age >= 13 && age <= 17) {
+//                priceTicket += 8;
+//            }
+//            if (age >= 18 && age <= 64 && isWeekend) {
+//                priceTicket += 12;
+//                priceTicket += weekendCharge;
+//            } else if (age >= 18 && age <= 64) {
+//                priceTicket += 12;
+//            }
+//            if (age >= 65 && isWeekend){
+//                priceTicket += 10;
+//                priceTicket += weekendCharge;
+//            } else if (age >= 65) {
+//                priceTicket +=10;
+//          }
+//    }
+//        if (ages.size() >= 5) {
+//            double groupDiscount = priceTicket * 0.1;
+//            priceTicket -=groupDiscount;
+//        }
+//        return priceTicket;
+//    }
+//}
