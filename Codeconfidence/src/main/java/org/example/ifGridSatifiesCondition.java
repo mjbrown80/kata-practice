@@ -41,7 +41,9 @@ public class ifGridSatifiesCondition {
     }
 
     public static boolean satisfiesConditions(int[][] grid){
-
+        if (grid.length < 2){
+            return false;
+        }
         for (int i = 0; i < grid.length; i++){
             for (int j = 0; j < grid[i].length; j++){
                 if (grid[i][j] != grid[i+1][j]){
