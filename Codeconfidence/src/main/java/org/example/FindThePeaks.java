@@ -53,6 +53,11 @@ public class FindThePeaks {
 
         List<Integer> peaks = new ArrayList<>();
 
+        for (int i = 0; i < mountain.length-2; i++){
+            if (mountain[i] < mountain[i + 1] && mountain[i + 1] > mountain[i + 2]) {
+                peaks.add(i + 1);
+            }
+        }
         return peaks;
     }
 }
