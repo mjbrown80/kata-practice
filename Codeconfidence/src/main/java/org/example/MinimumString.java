@@ -1,7 +1,9 @@
 package org.example;
 
-public class MinimumString {
+import java.util.*;
 
+public class MinimumString {
+// had to have help with this one!!!!
 //    Given three strings a, b, and c, your task is to find a string that has the
 //    minimum length and contains all three strings as substrings.
 //    If there are multiple such strings, return the lexicographically smallest one.
@@ -37,11 +39,42 @@ public class MinimumString {
         System.out.println("Expected: xyzx " + "Actual: " + minimumString("xyz", "yzx", "zxy"));
     }
 
-    public static String minimumString(String a, String b, String c){
-        String abc = "";
-
-        
-        return abc;
+    public static String minimumString(String a, String b, String c) {
+        List<String> list = new ArrayList<>();
+        list.add(mininumStringV2(a,b,c));
+        list.add(mininumStringV2(a,c,b));
+        list.add(mininumStringV2(b,a,c));
+        list.add(mininumStringV2(b,c,a));
+        list.add(mininumStringV2(c,a,b));
+        list.add(mininumStringV2(c,b,a));
+        Collections.sort(list,(e1, e2)->{
+            if(e1.length()!=e2.length()){
+                return e1.length()-e2.length();
+            }
+            return e1.compareTo(e2);
+        });
+        return list.get(0);
     }
 
+    private static String mininumStringV2(String a, String b, String c){
+        if(a.contains(b) && a.contains(c)) return a;
+        if(!a.contains(b)){
+            for(int i=b.length()-1;i>=0;i--){
+                if(a.endsWith(b.substring(0,i))){
+                    a = a+b.substring(i,b.length());
+                    break;
+                }
+            }
+        }
+        if(!a.contains(c)){
+            for(int i=c.length()-1;i>=0;i--){
+                if(a.endsWith(c.substring(0,i))){
+                    a = a+c.substring(i,c.length());
+                    break;
+                }
+            }
+        }
+        return a;
+
+    }
 }
