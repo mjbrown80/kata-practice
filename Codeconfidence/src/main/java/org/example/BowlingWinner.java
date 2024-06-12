@@ -50,25 +50,46 @@ public class BowlingWinner {
         int[] player1_1 = {5, 10, 3, 2};
         int[] player2_1 = {6, 5, 7, 3};
         int expected1 = 1;
-        System.out.println("Expected: " + expected1 + " Actual: " );
+        System.out.println("Expected: " + expected1 + " Actual: " + isWinner(player1_1, player2_1));
 
         int[] player1_2 = {3, 5, 7, 6};
         int[] player2_2 = {8, 10, 10, 2};
         int expected2 = 2;
-        System.out.println("Expected: " + expected2 + " Actual: " );
+        System.out.println("Expected: " + expected2 + " Actual: " + isWinner(player1_2, player2_2) );
 
         int[] player1_3 = {2, 3};
         int[] player2_3 = {4, 1};
         int expected3 = 0;
-        System.out.println("Expected: " + expected3 + " Actual: " );
+        System.out.println("Expected: " + expected3 + " Actual: " + isWinner(player1_3, player2_3) );
 
         int[] player1_4 = {1, 1, 1, 10, 10, 10, 10};
         int[] player2_4 = {10, 10, 10, 10, 1, 1, 1};
-        int expected4 = 1;
-        System.out.println("Expected: " + expected4 + " Actual: ");
+        int expected4 = 2;
+        System.out.println("Expected: " + expected4 + " Actual: " + isWinner(player1_4, player2_4));
     }
 
     public static int isWinner(int[] player1, int[] player2){
+        int sumP1 = 0;
+        int sumP2 = 0;
+
+        for (int i = 0; i < player1.length; i++){
+            if ((i > 0 && player1[i - 1] == 10) || (i > 1 && player1[i-2]  == 10)){
+                sumP1 += player1[i] * 2;
+            }else {
+                sumP1 += player1[i];
+            }
+            if ((i > 0 && player2[i - 1] == 10) || (i > 1 && player2[i-2]  == 10)){
+                sumP2 += player2[i] * 2;
+            }else {
+                sumP2 += player2[i];
+            }
+        }
+
+        if (sumP1 > sumP2){
+            return 1;
+        } else if (sumP2 > sumP1) {
+            return 2;
+        }
         return 0;
     }
 }
