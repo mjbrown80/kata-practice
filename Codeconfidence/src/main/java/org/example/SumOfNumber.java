@@ -78,7 +78,15 @@ public class SumOfNumber {
 
         return sum;
 
+        // alternative solution 1
 //        return(a + b) * (Math.abs(a - b) + 1) / 2;
+
+        // alternative solution 2
+//        int sum = 0;
+//        for(int i = Math.min(a, b); i <= Math.max(a,b); i++){
+//            sum += i;
+//        }
+//        return a == b ? a : sum;
     }
 
 }
