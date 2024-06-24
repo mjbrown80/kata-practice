@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ReverseList {
@@ -38,6 +39,11 @@ public class ReverseList {
 
     public static List<String> reverseList(List<String> strings){
         List<String> updatedList = new ArrayList<>();
+
+        for(String word : strings){
+            updatedList.add(word);
+        }
+        Collections.reverse(updatedList);
 
         return updatedList;
     }
