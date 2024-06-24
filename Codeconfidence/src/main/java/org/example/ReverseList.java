@@ -40,10 +40,14 @@ public class ReverseList {
     public static List<String> reverseList(List<String> strings){
         List<String> updatedList = new ArrayList<>();
 
-        for(String word : strings){
-            updatedList.add(word);
+        for (int i = strings.size()-1; i >=0; i--){
+            updatedList.add(strings.get(i));
         }
-        Collections.reverse(updatedList);
+
+//        for(String word : strings){
+//            updatedList.add(word);
+//        }
+//        Collections.reverse(updatedList);
 
         return updatedList;
     }
