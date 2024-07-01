@@ -48,7 +48,7 @@ public class PrimeFactors {
         System.out.println("Actual:   " + Arrays.toString(actual4));
         System.out.println(Arrays.equals(expected4, actual4) ? "Test Passed" : "Test Failed");
         System.out.println();
-        
+
         int[] expected5 = {97};
         int[] actual5 = primeFactors(97);
         System.out.println("Testing primeFactors(97)");
