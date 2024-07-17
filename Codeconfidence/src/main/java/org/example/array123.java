@@ -9,7 +9,7 @@ Given an array of ints, return true if .. 1, 2, 3, .. appears in the array somew
 array123([1, 1, 2, 3, 1]) → true
 array123([1, 1, 2, 4, 3]) → false
 array123([1, 1, 2, 1, 2, 3]) → true
-
+kata
 */
     public static void main(String[] args) {
 
